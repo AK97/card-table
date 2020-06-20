@@ -19,6 +19,11 @@ class Deck {
             [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
         }
     }
+    flipAll() {
+        for (let c = 0; c < this.cards.length; c++) {
+            this.cards[c].flip();
+        }
+    }
 }
 
 module.exports = Deck;

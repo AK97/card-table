@@ -5,11 +5,13 @@
         <img class="table" src="./assets/table.jpg" width="600px" height="400px">
         <div class="deck">
             <div class="carddiv" v-for="c in 52" :key="c">
-                <card-t :cid="deck.cards[c-1].id"></card-t>
+                <card-t backtext="" :cid="deck.cards[c-1].id" v-on:click="deck.cards[c-1].flip()"></card-t>
             </div>
         </div>
-        <button class="shuffle" v-on:click="deck.shuffle(); shuffle_count++">Shuffle</button>
-        <label>Deck has been shuffled {{ shuffle_count }} times</label>
+        <button class="manip_deck" v-on:click="deck.shuffle(); shuffle_count++">Shuffle</button>
+        <button class="manip_deck" v-on:click="deck.flipAll(); flip_count++">Flip All</button>
+        <p>Deck has been shuffled {{ shuffle_count }} times</p>
+        <p>Deck has been flipped {{ flip_count }} times</p>
     </div>
 </template>
 
@@ -27,7 +29,8 @@ export default {
             title: 'Card Table',
             subtitle: 'Online multiplayer playing cards',
             deck: deck,
-            shuffle_count: 0
+            shuffle_count: 0,
+            flip_count: 0
             // card_graphics: Cards,
         }
     }
@@ -44,7 +47,7 @@ export default {
 card-t img {
     height:100px;
 }
-.shuffle {
+.manip_deck {
     height:50px;
     width:200px;
     font-size:30px;
