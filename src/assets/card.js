@@ -4,7 +4,7 @@ class Card {
         this.suit = suit;
 
         this.name = `${value} of ${suit}`;
-        this.id = value+suit;
+        this.id = value+suit[0];
 
         ['Spades', 'Clubs'].includes(suit)
             ? this.color = 'Black'
