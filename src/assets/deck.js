@@ -14,10 +14,15 @@ class Deck {
         }
     }
     shuffle() {
-        for (let i = this.cards.length - 1; i > 0; i--) {
+        var shuffled_deck = Array.from(this.cards);
+        for (let i = shuffled_deck.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
+            [shuffled_deck[i], shuffled_deck[j]] = [shuffled_deck[j], shuffled_deck[i]];
         }
+        this.cards = shuffled_deck;
+    }
+    flipOne(index) {
+        this.cards[index].flip();
     }
     flipAll() {
         for (let c = 0; c < this.cards.length; c++) {

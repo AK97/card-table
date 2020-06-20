@@ -1,10 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
-import Dragula from 'dragula';
 
-Vue.config.productionTip = false
-Vue.use(Dragula);
+var VueDragula = require('vue-dragula');
+
+Vue.use(VueDragula);
 
 new Vue({
   render: h => h(App),
+  created: function () {
+    Vue.vueDragula.options('card-bag', {
+      direction: 'horizontal',
+      revertOnSpill: true,
+    })
+  }
 }).$mount('#app')

@@ -11,7 +11,7 @@ class Card {
 
         // Side of card that's facing up and showing, Front or Back
         // Always default to Back, it seems that this prevents Inspect Element cheating
-        this.side = 'Down';
+        this.side = 'Back';
         this.id = '0';
     }
     flip() {
